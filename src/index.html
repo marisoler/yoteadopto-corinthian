@@ -293,11 +293,6 @@
     padding: 80px 60px 60px;
   }
 
-  .testimony h2 {
-    position: fixed;
-    top: 100%;
-  }
-
   .testimony blockquote {
     max-width: 200px;
     margin: 0 auto;
@@ -351,11 +346,6 @@
     font-size: 32px
   }
 
-  footer h2, footer i span {
-    position: fixed;
-    left: -100%;
-  }
-
   footer nav ul li {
     display: inline;
     margin: 0 4px;
@@ -384,6 +374,13 @@
     font-size: 14px;
   }
 
+  .only-read {
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+  }
+
 </style>
 
 <body>
@@ -397,11 +394,11 @@
         </li>
         <li>
           <a href="#">
-            <span>¿Que es Yo Te Adopto?</span>Acerca</a>
+            <span class="only-read">¿Que es Yo Te Adopto?</span>Acerca</a>
         </li>
         <li>
           <a href="#">
-            <span>Animales en Adopción</span>Adoptar</a>
+            <span class="only-read">Animales en Adopción</span>Adoptar</a>
         </li>
         <li>
           <a href="#">Campañas</a>
@@ -492,7 +489,7 @@
     </section>
 
     <section class="testimony">
-      <h2>Testimonios</h2>
+      <h2 class="only-read">Testimonios</h2>
       <blockquote>
         <div class="testimony-quote">
           La grandeza de una nación y su progreso moral puede ser juzgado por la forma en que sus animales son tratados
@@ -530,18 +527,18 @@
         <i class="yta yta-paw_print"></i>
       </div>
       <nav class="footer-socialnetworks">
-        <h2>Redes sociales</h2>
+        <h2 class="only-read">Redes sociales</h2>
         <ul>
-          <li><a href="#"><i class="yta yta-facebook"><span>Facebook</span></i></a></li>
-          <li><a href="#"><i class="yta yta-twitter"><span>Twitter</span></i></a></li>
-          <li><a href="#"><i class="yta yta-instagram"><span>Instagram</span></i></a></li>
+          <li><a href="#"><i class="yta yta-facebook"><span class="only-read">Facebook</span></i></a></li>
+          <li><a href="#"><i class="yta yta-twitter"><span class="only-read">Twitter</span></i></a></li>
+          <li><a href="#"><i class="yta yta-instagram"><span class="only-read">Instagram</span></i></a></li>
         </ul>
       </nav>
       <nav class="footer-sponsors">
-        <h2>Patrocinadores</h2>
+        <h2 class="only-read">Patrocinadores</h2>
         <ul>
-          <li><a href="#"><i class="yta yta-KOC_logo"><span>Johnny Terror</span></i></a></li>
-          <li><a href="#"><i class="yta yta-JT_logo"><span>The Knights Of Code</span></i></a></li>
+          <li><a href="#"><i class="yta yta-KOC_logo"><span class="only-read">Johnny Terror</span></i></a></li>
+          <li><a href="#"><i class="yta yta-JT_logo"><span class="only-read">The Knights Of Code</span></i></a></li>
         </ul>
       </nav>
       <b class="footer-copy">Yo Te Adopto &copy; 2017</b>
