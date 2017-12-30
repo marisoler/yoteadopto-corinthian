@@ -42,7 +42,7 @@
     font-style: normal;
   }
 
-  * {
+  *, a {
     font-family: nunito;
   }
 
@@ -73,13 +73,9 @@
     z-index: 1;
   }
 
-  header ul,
-  header h2 {
-    display: none;
-  }
-
   header nav i:first-child {
     font-size: 20px;
+    cursor: pointer;
   }
 
   header nav i:last-child {
@@ -381,37 +377,67 @@
     overflow: hidden;
   }
 
-</style>
+  .menu-list {
+    position: fixed;
+    background-color: #553457;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    overflow: hidden;
+    text-align: center;
+    transition: bottom ease .5s, padding-top ease-in .3s;
+  }
 
+  .menu-list.opened {
+    padding-top: 66px;
+    bottom: 0;
+    height: 100vh;
+  }
+
+  .menu-list li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 30px;
+    text-transform: uppercase;
+  }
+
+  header nav i {
+    position: relative;
+    z-index: 1;
+  }
+
+</style>
 <body>
   <header>
     <nav>
-      <i class="yta yta-menu_icon"></i>
-      <h2>Menú de Navegación</h2>
-      <ul>
+      <i id="menuIcon" class="yta yta-menu_icon"></i>
+      <h2 class="only-read">Menú de Navegación</h2>
+      <ul id="menuList" class="menu-list">
         <li>
-          <a href="#">Home</a>
+          <a href="#home">Home</a>
         </li>
         <li>
-          <a href="#">
+          <a href="#aboutUs">
             <span class="only-read">¿Que es Yo Te Adopto?</span>Acerca</a>
         </li>
         <li>
-          <a href="#">
+          <a href="#adopt">
             <span class="only-read">Animales en Adopción</span>Adoptar</a>
         </li>
         <li>
-          <a href="#">Campañas</a>
-        </li>
+            <a href="#testimony">Testimonio</a>
+          </li>
         <li>
-          <a href="#">Testimonio</a>
+          <a href="#camp">Campañas</a>
         </li>
       </ul>
       <i class="yta yta-yta_icon-white"></i>
     </nav>
   </header>
   <main>
-    <section class="home">
+    <section id="home" class="home">
       <svg aria-labelledby="home-title home-desc">
         <title id="home-title">Yo te adopto</title>
         <desc id="home-desc">Hogares para nuestros amigos</desc>
@@ -420,7 +446,7 @@
       <i class="home-down yta yta-slide_icon-up-down"></i>
     </section>
 
-    <section class="aboutUs">
+    <section id="aboutUs" class="aboutUs">
       <div class="aboutUs-containerImg">
         <picture class="aboutUs-img">
           <img src="./img/aboutus-img_2x.png" srcset="./img/aboutus-img_1x.png,
@@ -439,7 +465,7 @@
       </p>
     </section>
 
-    <section>
+    <section id="adopt">
       <div class="adopt-title">
         <i class="yta yta-yta_icon-white"></i>
         <h2>Busco un lugar, ¿Me adoptas?</h2>
@@ -488,7 +514,7 @@
       </div>
     </section>
 
-    <section class="testimony">
+    <section id="testimony" class="testimony">
       <h2 class="only-read">Testimonios</h2>
       <blockquote>
         <div class="testimony-quote">
@@ -501,7 +527,7 @@
       </blockquote>
     </section>
 
-    <section class="camp">
+    <section id="camp" class="camp">
       <div class="class camp-title">
         <i class="yta yta-paw_plus"></i>
         <h2>Campañas de Vacunación</h2>
@@ -544,6 +570,24 @@
       <b class="footer-copy">Yo Te Adopto &copy; 2017</b>
     </footer>
   </main>
-</body>
 
+  <script>
+      var menulist = document.getElementById('menuList');
+      var menuIcon = document.getElementById('menuIcon');
+
+      menuIcon.addEventListener('click', function(){
+        menulist.classList.toggle('opened');
+        if(menulist.classList.contains('opened')){
+          document.body.style.overflow = 'hidden';
+        }else {
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+     window.onhashchange = function(){
+       menuIcon.click();
+     }
+
+  </script>
+</body>
 </html>
